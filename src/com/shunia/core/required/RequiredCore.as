@@ -76,7 +76,6 @@ package com.shunia.core.required
 				}
 			}
 			
-			
 			return tmp;
 		}
 		
