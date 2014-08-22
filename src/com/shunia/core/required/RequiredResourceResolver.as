@@ -1,23 +1,17 @@
 package com.shunia.core.required
 {
-	public class RequiredPath implements IPathResolver
+	public class RequiredResourceResolver implements IResourceResolver
 	{
-		public function RequiredPath(path:String)
-		{
-		}
 		
-		public function get id():String
-		{
-			return null;
-		}
+		protected var _exists:Boolean = false;
 		
-		public function get isLocalClassPossible():Boolean
+		public function RequiredResourceResolver(path:String)
 		{
-			return false;
+			trace("Resolving path: " + path);
 		}
 		
 		public function get exists():Boolean {
-			return false;
+			return true;
 		}
 		
 		public function get name():String

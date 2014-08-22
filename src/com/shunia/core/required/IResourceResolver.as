@@ -1,9 +1,7 @@
 package com.shunia.core.required
 {
-	public interface IPathResolver
+	public interface IResourceResolver
 	{
-		
-		function get isLocalClassPossible():Boolean;
 		
 		function get exists():Boolean;
 		
@@ -12,8 +10,6 @@ package com.shunia.core.required
 		function get name():String;
 		
 		function get type():int;
-		
-		function get id():String;
 		
 	}
 }
