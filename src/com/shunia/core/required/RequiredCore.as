@@ -14,21 +14,22 @@ package com.shunia.core.required
 		 * 目前使用默认解析逻辑. 
 		 */		
 		private static var _resolverClass:Class = RequiredResourceResolver;
+		protected static var _resolver:IResourceResolver = new _resolverClass() as IResourceResolver;
 		
-		public static function init(module:String, id:String = null):RequiredModule {
+		public static function init(module:*, id:String = null):RequiredModule {
 			var tmp:RequiredModule = new RequiredModule();
 			if (id && id.length > 0) {
 				tmp.id = id;
 			}
 			
-			var p:IResourceResolver = new _resolverClass(module) as IResourceResolver;
+			_resolver.resolve(module);
 			
-			tmp.type = p.type;
-			tmp.name = p.name;
-			tmp.fullPath = p.path;
-			tmp.exists = p.exists;
+			tmp.type = _resolver.type;
+			tmp.name = _resolver.name;
+			tmp.fullPath = _resolver.path;
+			tmp.exists = _resolver.exists;
 			
-			if (!p.exists) {
+			if (!tmp.exists) {
 				//不存在
 			} else {
 				//存在
